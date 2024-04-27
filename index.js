@@ -38,7 +38,6 @@ async function run() {
       .collection("user_crafts");
 
     // getting all users created crafts
-
     app.get("/getallcrafts", async (req, res) => {
       const cursor = allAddedCraftCollection.find();
       const result = await cursor.toArray();
@@ -46,7 +45,6 @@ async function run() {
     });
 
     // getting craft by id
-
     app.get("/getcraft/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
@@ -54,10 +52,19 @@ async function run() {
       res.send(craft);
     });
 
+    // getting single users crafts by email
+
+    app.get("/getcraftsbyemail/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { user_email: email };
+      const cursor = allAddedCraftCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
     //   creating crafts for individual users
     app.post("/createcrafts", async (req, res) => {
       const craftData = req.body;
-      console.log(craftData);
       const result = await allAddedCraftCollection.insertOne(craftData);
       res.send(result);
     });
