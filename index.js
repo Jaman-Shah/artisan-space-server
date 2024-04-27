@@ -69,6 +69,34 @@ async function run() {
       res.send(result);
     });
 
+    // updating craft by id
+
+    app.put("/updatecraft/:id", async (req, res) => {
+      const id = req.params.id;
+      const CraftDetails = req.body;
+      const filter = { _id: new ObjectId(id) };
+      const updateCraft = {
+        $set: {
+          image: CraftDetails.image,
+          item_name: CraftDetails.item_name,
+          subcategory_name: CraftDetails.subcategory_name,
+          short_description: CraftDetails.short_description,
+          price: CraftDetails.price,
+          rating: CraftDetails.rating,
+          customization: CraftDetails.customization,
+          processing_time: CraftDetails.processing_time,
+          stock_status: CraftDetails.stock_status,
+        },
+      };
+      const options = { upsert: true };
+      const result = await allAddedCraftCollection.updateOne(
+        filter,
+        updateCraft,
+        options
+      );
+      res.send(result);
+    });
+
     // deleting craft by id
 
     app.delete("/crafts/:id", async (req, res) => {
