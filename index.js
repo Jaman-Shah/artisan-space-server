@@ -73,6 +73,16 @@ async function run() {
       res.send(result);
     });
 
+    // getting crafts by category
+
+    app.get("/getcraftsbycategory/:subcategory", async (req, res) => {
+      const subcategory = req.params.subcategory;
+      const query = { subcategory_name: subcategory };
+      const cursor = allAddedCraftCollection.find(query);
+      const result = await cursor.toArray();
+      res.send(result);
+    });
+
     //   creating crafts for individual users
     app.post("/createcrafts", async (req, res) => {
       const craftData = req.body;
