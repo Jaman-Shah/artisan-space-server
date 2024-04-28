@@ -36,6 +36,17 @@ async function run() {
     const allAddedCraftCollection = client
       .db("usersCraftDB")
       .collection("user_crafts");
+    const craftsCategoryCollection = client
+      .db("usersCraftDB")
+      .collection("crafts_category");
+
+    // getting craft categories I inserted manually
+
+    app.get("/getcraftscategory", async (req, res) => {
+      const cursor = craftsCategoryCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
 
     // getting all users created crafts
     app.get("/getallcrafts", async (req, res) => {
