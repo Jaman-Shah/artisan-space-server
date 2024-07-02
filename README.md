@@ -1,15 +1,38 @@
 # Artisan Space
 
-LIVE SITE URL
-https://artisan-space.web.app/
+## Live Link
 
-SITE FEATURES AND CHARACTERISTICS:
+https://artisan-space.web.app
 
-- 1. Artisan Space provide world best crafts
-- 2. Artisan Space is a reliable company
-- 3. Artisan Space is famous for its services
-- 4. Only Artisan Space Provide high quality Drawings than others
-- 5. People can get better services with cheap rate
+## Project Overview
 
-SELECTED CATEGORY :
-Painting And Drawing
+Artisan Space provides best arts and crafts of the world.
+
+## Features
+
+- **Add Arts And Crafts**: A user can add arts and crafts
+- **Dark and Light mode**: A user can toggle dark and light mode to whole website
+- **Crud operations**: A user can operate CRUD operations.
+
+## Technologies Used
+
+- **Frontend**: React
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **Styling**: TailwindCSS
+
+## Getting Started
+
+To get a local copy up and running, follow these steps:
+
+### Prerequisites
+
+- Node.js installed
+- MongoDB installed and running locally or a remote MongoDB URI
+
+### Installation
+
+- Step-1: git clone https://github.com/Jaman-Shah/artisan-space-server.git
+- Step-2: cd bd-tour-client
+- Step-3: npm install
+- Step-4: npm start
